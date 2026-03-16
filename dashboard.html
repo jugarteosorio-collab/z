@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monero Mining Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Monero Mining Dashboard</h1>
+        </header>
+        <main>
+            <section class="controls">
+                <button id="start-button">Start</button>
+                <button id="stop-button">Stop</button>
+            </section>
+            <section class="statistics">
+                <div id="cpu-usage">CPU Usage: <span class="value">0</span>%</div>
+                <div id="hash-rate">Hash Rate: <span class="value">0</span> H/s</div>
+                <div id="shares">Shares Found: <span class="value">0</span></div>
+                <div id="shares-rejected">Shares Rejected: <span class="value">0</span></div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
