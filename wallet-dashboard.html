@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .dashboard { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        h1 { text-align: center; }
+        .info { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Wallet Dashboard</h1>
+        <div class="info"><strong>Wallet Address:</strong> <span id="walletAddress">0x1234567890abcdef...</span></div>
+        <div class="info"><strong>Balance:</strong> <span id="balance">0.00 ETH</span></div>
+        <div class="info"><strong>Pending Payouts:</strong> <span id="pendingPayouts">2.00 ETH</span></div>
+        <h2>Transaction History</h2>
+        <ul id="transactionHistory">
+            <li>Transaction 1: 0.5 ETH - 2026-03-15</li>
+            <li>Transaction 2: 1.0 ETH - 2026-03-14</li>
+        </ul>
+    </div>
+</body>
+</html>
