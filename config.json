@@ -1,0 +1,1 @@
+{\n  "pool": {\n    "address": "pool.example.com:3333",\n    "username": "your_wallet_address",\n    "password": "x"\n  },\n  "cpu": {\n    "threads": 4\n  },\n  "monitoring": {\n    "enabled": true,\n    "interval": 30\n  }\n}
