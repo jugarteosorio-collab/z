@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monero Mining Dashboard</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #c6c6c6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #00ff00;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #2e2e2e;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .stats { 
+            display: flex; 
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .control-panel, .wallet-management, .mining-log {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #00ff00;
+            border: none;
+            padding: 10px;
+            color: #1e1e1e;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monero Mining Dashboard</h1>
+        <div class="stats">
+            <div>
+                <p>Hash Rate: <span id="hashRate">0 H/s</span></p>
+                <p>CPU Usage: <span id="cpuUsage">0%</span></p>
+                <p>Memory Usage: <span id="memoryUsage">0MB</span></p>
+                <p>Temperature: <span id="temperature">0°C</span></p>
+                <p>Power Consumption: <span id="power">0W</span></p>
+            </div>
+        </div>
+        <div class="control-panel">
+            <button id="startMining">Start Mining</button>
+            <button id="stopMining">Stop Mining</button>
+        </div>
+        <div class="wallet-management">
+            <h2>Wallet Management</h2>
+            <input type="text" id="walletAddress" placeholder="Enter Wallet Address"/>
+            <button id="saveWallet">Save Wallet</button>
+        </div>
+        <div class="mining-log">
+            <h2>Mining Log</h2>
+            <ul id="logList"></ul>
+        </div>
+    </div>
+    <script>
+        let isMining = false;
+        let hashRate = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
+        const hashRateDisplay = document.getElementById('hashRate');
+        const cpuUsageDisplay = document.getElementById('cpuUsage');
+        const memoryUsageDisplay = document.getElementById('memoryUsage');
+        const temperatureDisplay = document.getElementById('temperature');
+        const powerDisplay = document.getElementById('power');
+        const logList = document.getElementById('logList');
+
+        document.getElementById('startMining').onclick = () => {
+            isMining = true;
+            updateStats();
+            log('Mining started...');
+        };
+
+        document.getElementById('stopMining').onclick = () => {
+            isMining = false;
+            log('Mining stopped...');
+        };
+
+        function updateStats() {
+            if (!isMining) return;
+            hashRateDisplay.textContent = hashRate + ' H/s';
+            cpuUsageDisplay.textContent = Math.floor(Math.random() * 100) + '%';
+            memoryUsageDisplay.textContent = (Math.random() * 8192).toFixed(2) + ' MB';
+            temperatureDisplay.textContent = (Math.random() * 80).toFixed(2) + ' °C';
+            powerDisplay.textContent = (hashRate / 100) + ' W';
+            setTimeout(updateStats, 1000);
+        }
+
+        function log(message) {
+            const listItem = document.createElement('li');
+            listItem.textContent = message;
+            logList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
